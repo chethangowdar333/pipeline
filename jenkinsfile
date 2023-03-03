@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    
+    git branch: 'main', url: 'https://github.com/chethangowdar333/pipeline.git'
     stages {
         stage('Build') {
             steps {
