@@ -1,9 +1,52 @@
 pipeline {
   agent any;
     stages {
-     stage ('Build') {
-     steps {
-     sh '''
-     echo "This is Build stage"
+      stage ('Build') {
+      steps {
+      echo "This is Build stage"
+      sh '''
+        sleep 5
+        exit 0
+      '''
+      }
+     }
+    stage ('Test Parellel') {
+     parellel {
+      stage ('Test on Chrome') {
+      steps {
+      echo "This is test on Chrome broswer"
+      sh 'sleep 5;exit 1'
+      }
+     }
+     stage ('Test on Safary') {
+      steps {
+      echo "This is test on safary"
+      sh 'sleep 5;exit 1'
+      }
+     }
+    }
+   }
+   stage ('Deploy') {
+      steps {
+      echo "This is Deploy stage"
+      sh '''
+        sleep 5
+        exit 2
+      '''
+      }
+     }
+     stage ('Test') {
+      steps {
+      echo "This is Test stage"
+      sh '''
+        sleep 5
+        exit 3
+      '''
+      }
+     }
+    }
+   }
      
+    
+   
      
