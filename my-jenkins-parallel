@@ -10,8 +10,8 @@ pipeline {
       '''
       }
      }
-    stage ('Test Parellel') {
-     parellel {
+    stage ('Test Parallele') {
+     parallel {
       stage ('Test on Chrome') {
       steps {
       echo "This is test on Chrome broswer"
