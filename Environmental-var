@@ -24,7 +24,7 @@ pipeline {
          agent any;
             steps {
             sh '''
-            echo "This is Test stage"
+            echo "$Name"
             '''
             }
           }
