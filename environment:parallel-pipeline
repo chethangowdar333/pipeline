@@ -1,0 +1,41 @@
+pipeline {
+   agent any;
+   environment {
+     Name = 'VARSHA'
+    }
+      stages {
+         stage ('Build') {
+         
+            steps {
+            sh '''
+            echo "$Name"
+            '''
+            }
+          }
+         stage ('Deploy') {
+         
+            steps {
+            sh '''
+            echo "This is Deploy stage"
+            '''
+            }
+          }
+          stage ('test') {
+          parallel
+           stage ('test on chrome') {
+            steps {
+            sh '''
+            echo "this is test on chrome browser"
+            '''
+            }
+          }
+           stage ('test on safari') {
+           steps {
+           echo "this is test on safari browser"
+          }
+          }
+          }
+          }
+         
+         
+        
