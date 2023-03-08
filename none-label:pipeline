@@ -7,11 +7,6 @@ pipeline {
         echo "This is build stage"
         }
        }
-       stage ('DEPLOY') {
-         agent {label 'slave2'}
-       steps {
-         echo "This is deploy stage"
-         }
-        }
+       
        }
       }
